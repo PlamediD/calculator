@@ -85,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       buttonText: buttons[index],
                       color: Colors.deepPurple,
                       textColor: Colors.white,
+                      //nothing
                     );
                   }
                 )
