@@ -51,7 +51,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<String> buttons= [
     'C', 'DEL','%', '/',
-    '9', '8','7', 'X',
+    '9', '8','7', 'x',
     '6', '5','4', '-',
     '3', '2','1', '+',
     '8', '.','ANS', '=',
@@ -81,12 +81,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   itemCount: buttons.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
                   itemBuilder:(BuildContext context, int index){
-                    return MyButton(
-                      buttonText: buttons[index],
-                      color: Colors.deepPurple,
-                      textColor: Colors.white,
-                      //nothing
-                    );
+                    if( index==0){
+                      return MyButton(
+                        buttonText: buttons[index],
+                        color: Colors.green,
+                        textColor: Colors.white,
+                      );
+                    }
+                    else if(index==1){
+                      return MyButton(
+                        buttonText: buttons[index],
+                        color: Colors.red,
+                        textColor: Colors.white,
+                      );
+                    }
+                    else{
+                      return MyButton(
+                        buttonText: buttons[index],
+                        color: isOperator(buttons[index])?Colors.deepPurple:Colors.deepPurple[50],
+                        textColor: isOperator(buttons[index])?Colors.white: Colors.deepPurple,
+                        //nothing
+                      );
+                    }
                   }
                 )
 
@@ -95,5 +111,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         )
     );
+  }
+  bool isOperator( String x){
+    if(x=='%'|| x=='/'|| x=='x'|| x=='-'|| x=='+'|| x=='='){
+      return true;
+    }
+    return false;
   }
 }
