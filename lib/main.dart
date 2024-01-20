@@ -49,6 +49,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  var userQuestion='question';
+  var userAnswer='answer';
+  final myTextStyle= TextStyle( fontSize: 30, color: Colors.deepPurple[900]);
+
   final List<String> buttons= [
     'C', 'DEL','%', '/',
     '9', '8','7', 'x',
@@ -72,7 +77,25 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Column(
           children: <Widget>[
             Expanded(
-                child: Container(),
+
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      SizedBox(height: 50,),
+                      Container(
+                          padding: EdgeInsets.all(20),
+                          alignment: Alignment.centerLeft,
+                          child: Text(userQuestion, style:TextStyle( fontSize: 20),),
+                      ),
+                      Container(
+                          padding: EdgeInsets.all(20),
+                          alignment: Alignment.centerRight,
+                          child: Text(userAnswer, style:TextStyle( fontSize: 20),),
+                      )
+                    ],
+                  )
+                ),
             ),
             Expanded(
               flex:2,
