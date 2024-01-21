@@ -50,8 +50,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  var userQuestion='question';
-  var userAnswer='answer';
+  var userQuestion='';
+  var userAnswer='';
   final myTextStyle= TextStyle( fontSize: 30, color: Colors.deepPurple[900]);
 
   final List<String> buttons= [
@@ -104,15 +104,30 @@ class _MyHomePageState extends State<MyHomePage> {
                   itemCount: buttons.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
                   itemBuilder:(BuildContext context, int index){
+
+                    //clear button
                     if( index==0){
                       return MyButton(
+                        buttonTaped: (){
+                          setState(() {
+                            userQuestion='';
+                          });
+
+                        },
                         buttonText: buttons[index],
                         color: Colors.green,
                         textColor: Colors.white,
                       );
                     }
+
+                    //Delete button
                     else if(index==1){
                       return MyButton(
+                        buttonTaped: (){
+                          setState(() {
+                            userQuestion=userQuestion.substring(0,userQuestion.length-1);
+                          });
+                        },
                         buttonText: buttons[index],
                         color: Colors.red,
                         textColor: Colors.white,
@@ -120,10 +135,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     }
                     else{
                       return MyButton(
+                        buttonTaped: (){
+                          setState(() {
+                            userQuestion+=buttons[index];
+                          });
+                        },
                         buttonText: buttons[index],
                         color: isOperator(buttons[index])?Colors.deepPurple:Colors.deepPurple[50],
                         textColor: isOperator(buttons[index])?Colors.white: Colors.deepPurple,
-                        //nothing
+
                       );
                     }
                   }
