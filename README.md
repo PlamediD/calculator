@@ -1,16 +1,30 @@
-# calculator
+# Minimal Calculator using Flutter-
 
-A calculator app using a Youtube Tutorial
+Author: Plamedi Diakubama
 
-## Getting Started
+This is a minimal calculator built in Flutter inspired by Mitch Koko on YouTube. 
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Technologies Used 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Android Studio 
+- Dart Language
+
+
+  
+## Features
+
+1. Perform: Addition(+), Subtraction(-), Multiplication(x), Division(/), 
+
+   
+## Additional Challenges
+
+Features I am aiming to work on after completing the basic ones ( listed under 'Features') 
+
+1.Dark Mode: Implement a dark mode feature to provide a different visual theme for users.
+
+2.More operations( square root, etc.) 
+
+## Visualization
+
