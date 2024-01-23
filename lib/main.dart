@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
     '9', '8','7', 'x',
     '6', '5','4', '-',
     '3', '2','1', '+',
-    '8', '.','ANS', '=',
+    '8', '.','0', '=',
   ];
 
 
@@ -121,6 +121,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       );
                     }
 
+                    /*
+
+                     */
                     //Equal button
 
                     else if(index==buttons.length-1){
@@ -181,10 +184,35 @@ class _MyHomePageState extends State<MyHomePage> {
   void equalPressed(){
     String finalQuestion=userQuestion;
     finalQuestion =finalQuestion.replaceAll('x', '*');
+
+    // Check for division by zero
+    if (!finalQuestion.contains('/0')) {
+      Parser p = Parser();
+      Expression exp = p.parse(finalQuestion);
+      ContextModel cm=ContextModel();
+      double eval= exp.evaluate(EvaluationType.REAL, cm);
+      userAnswer= eval.toString();
+    } else {
+      userAnswer = 'Error';
+    }
+  }
+
+  /*
+  void equalPressed(){
+  String finalQuestion=userQuestion;
+  finalQuestion =finalQuestion.replaceAll('x', '*');
+
+  // Check for division by zero
+  if (!finalQuestion.contains('/0')) {
     Parser p = Parser();
     Expression exp = p.parse(finalQuestion);
     ContextModel cm=ContextModel();
     double eval= exp.evaluate(EvaluationType.REAL, cm);
     userAnswer= eval.toString();
+  } else {
+    userAnswer = 'Error';
   }
+}
+
+   */
 }
