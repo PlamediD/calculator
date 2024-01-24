@@ -85,12 +85,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       SizedBox(height: 50,),
                       Container(
-                          padding: EdgeInsets.all(20),
+                          padding: EdgeInsets.all(25),
                           alignment: Alignment.centerLeft,
                           child: Text(userQuestion, style:TextStyle( fontSize: 20),),
                       ),
                       Container(
-                          padding: EdgeInsets.all(20),
+                          padding: EdgeInsets.all(25),
                           alignment: Alignment.centerRight,
                           child: Text(userAnswer, style:TextStyle( fontSize: 20),),
                       )
@@ -148,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           });
                         },
                         buttonText: buttons[index],
-                        color: Colors.red,
+                        color: Colors.orange,
                         textColor: Colors.white,
                       );
                     }
