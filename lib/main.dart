@@ -90,10 +90,14 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text(userQuestion, style:TextStyle( fontSize: 20),),
                       ),
                       Container(
-                          padding: EdgeInsets.all(25),
-                          alignment: Alignment.centerRight,
-                          child: Text(userAnswer, style:TextStyle( fontSize: 20),),
+                        padding: EdgeInsets.all(25),
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          userAnswer,
+                          style: TextStyle(fontSize: 20, color: userAnswer == 'Error' ? Colors.red : Colors.black),
+                        ),
                       )
+
                     ],
                   )
                 ),
