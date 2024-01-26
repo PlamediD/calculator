@@ -143,6 +143,31 @@ class _MyHomePageState extends State<MyHomePage> {
                         textColor: Colors.white,
                       );
                     }
+
+                    //Allow only one decimal point in the user input.
+                    // Allow the user to input decimal points
+                    // Allow the user to input a decimal point only if there is no existing decimal point
+// and the last character is not an operator
+                    else if (index == buttons.length - 3) {
+                      return MyButton(
+                        buttonTaped: () {
+                          setState(() {
+                            // Check if there is already a decimal point or if the last character is an operator
+                            if (!userQuestion.endsWith('.') &&
+                                userQuestion.isNotEmpty &&
+                                !isOperator(userQuestion[userQuestion.length - 1])) {
+                              userQuestion += buttons[index];
+                            }
+                          });
+                        },
+                        buttonText: buttons[index],
+                        color: Colors.deepPurple[50],
+                        textColor: Colors.deepPurple,
+                      );
+                    }
+
+
+
                     //Delete button
                     else if(index==1){
                       return MyButton(
@@ -185,23 +210,28 @@ class _MyHomePageState extends State<MyHomePage> {
     return false;
   }
 
-  void equalPressed(){
-    String finalQuestion=userQuestion;
-    finalQuestion =finalQuestion.replaceAll('x', '*');
+  void equalPressed() {
+    String finalQuestion = userQuestion;
+
+    // Handle cases where there are multiple decimal points
+    finalQuestion = finalQuestion.replaceAll(RegExp(r'\.\.'), '.');
+
+    finalQuestion = finalQuestion.replaceAll('x', '*');
 
     // Check for division by zero
     if (!finalQuestion.contains('/0')) {
       Parser p = Parser();
       Expression exp = p.parse(finalQuestion);
-      ContextModel cm=ContextModel();
-      double eval= exp.evaluate(EvaluationType.REAL, cm);
-      userAnswer= eval.toString();
+      ContextModel cm = ContextModel();
+      double eval = exp.evaluate(EvaluationType.REAL, cm);
+      userAnswer = eval.toString();
     } else {
       userAnswer = 'Error';
     }
   }
 
-  /*
+
+/*
   void equalPressed(){
   String finalQuestion=userQuestion;
   finalQuestion =finalQuestion.replaceAll('x', '*');
