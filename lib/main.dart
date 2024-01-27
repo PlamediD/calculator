@@ -143,20 +143,19 @@ class _MyHomePageState extends State<MyHomePage> {
                         textColor: Colors.white,
                       );
                     }
-
-                    //Allow only one decimal point in the user input.
-                    // Allow the user to input decimal points
-                    // Allow the user to input a decimal point only if there is no existing decimal point
-// and the last character is not an operator
+// Allow the user to input a decimal point only if the last character is not an operator
                     else if (index == buttons.length - 3) {
                       return MyButton(
                         buttonTaped: () {
                           setState(() {
-                            // Check if there is already a decimal point or if the last character is an operator
-                            if (!userQuestion.endsWith('.') &&
-                                userQuestion.isNotEmpty &&
-                                !isOperator(userQuestion[userQuestion.length - 1])) {
-                              userQuestion += buttons[index];
+                            // Check if the last character is not an operator
+                            if (userQuestion.isEmpty || !isOperator(userQuestion[userQuestion.length - 1])) {
+                              // Check if the last number in the expression already contains a decimal point
+                              List<String> parts = userQuestion.split(RegExp(r'[+\-*/]'));
+                              String lastNumber = parts.last;
+                              if (!lastNumber.contains('.')) {
+                                userQuestion += buttons[index];
+                              }
                             }
                           });
                         },
@@ -165,6 +164,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         textColor: Colors.deepPurple,
                       );
                     }
+
+
 
 
 
