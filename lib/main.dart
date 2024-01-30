@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:calculator/buttons.dart';
 import 'package:math_expressions/math_expressions.dart';
 
+/*
+Author: Plamedi Diakubama
+Start date: 1//2024
+Description:
+
+ */
 void main() {
   runApp(const MyApp());
 }
