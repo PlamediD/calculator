@@ -1,3 +1,11 @@
+/*
+Author: Plamedi Diakubama 
+Start date: Jan 2024
+
+Description: 
+This class is for the calculator's buttons
+
+*/
 import 'package:flutter/material.dart';
 
 
