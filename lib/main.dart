@@ -4,8 +4,9 @@ import 'package:math_expressions/math_expressions.dart';
 
 /*
 Author: Plamedi Diakubama
-Start date: 1//2024
-Description:
+Start date: Jan 2024
+Description: Simple calculator app to perform fundamental operations( addition, multiplication, division, subtraction).
+It checks for user input to make sure that the user doesn't enter bad decimals such as 0.9.0.0
 
  */
 void main() {
